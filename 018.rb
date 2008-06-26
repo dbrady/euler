@@ -1,25 +1,4 @@
 #!/usr/bin/env ruby
-#  
-#  Not sure if you all know this already, but starting at the base proves much superior in this problem... e.g.:
-#  
-#  91 71 52
-#  63 66 04 68
-#  04 62 98 27 23
-#  
-#  If you reached '63' you would choose '62' over '04', so just add it to '63' to give you '125'.
-#  
-#  91 71 52
-#  125 66 04 68
-#  04 62 98 27 23
-#  
-#  Likewise, add the 98 to both the 66 and the 04, and the 27 to the 68... this gives you:
-#  
-#  91 71 52
-#  125 164 102 95
-#  0 0 0 0 0
-#  
-#  Proceed like this up the triangle... whatever integer appears at the peak is the maximum sum.
-
 
 triangle = <<TRIANGLE.split("\n").map{|line| line.split(' ').map(&:to_i)}
 75
@@ -49,21 +28,3 @@ TRIANGLE
 end
 
 p triangle[0][0]
-
-__END__
-
-numbers = []
-curr_idx = 0
-
-(0..triangle.length-1).each do |idx|
-  print "curr = #{triangle[idx][curr_idx]}"#, idx = #{idx}, curr_idx = #{curr_idx}"
-  numbers << triangle[idx][curr_idx]
-  
-  # Make sure we don't go out of bounds
-  if idx + 1 < triangle.size
-    curr_idx += 1 if triangle[idx+1][curr_idx+1] > triangle[idx+1][curr_idx]
-    puts ", next = #{triangle[idx+1][curr_idx]}"
-  end
-end
-
-puts "\n\nsum = #{numbers.inject(&:+)}"
