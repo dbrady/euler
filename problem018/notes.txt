@@ -1,0 +1,11 @@
+Each line should combo up into the previous line until we reach one
+item.
+
+What's odd is that my recursive function goes 2**10. Ah, can be solved
+with memoization!
+
+ruby -e 't=IO.readlines("triangle.txt").map{|l|l.split.map{|i|i.to_i}}; m=Hash.new; sum=lambda{|x,y| y>=t.size ? 0 : m["#{x}/#{y}"] ||= t[y][x] + [sum[x,y+1],sum[x+1,y+1]].max}; puts sum[0,0]'
+
+
+Oooh: could we change the lambda/Hash to be the default ctor for the hash?
+
