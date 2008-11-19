@@ -4,7 +4,7 @@
 # 
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-class Fixnum
+class Numeric
   def digit_at(place)
     p1 = 10**(place+1)
     n = self % 10**(place+1)
