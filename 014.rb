@@ -1,25 +1,11 @@
 #!/usr/bin/env ruby
 
-def collatz(n)
-  if n.even?
-    n / 2
-  else
-    3*n + 1
-  end
-end
-
 # Map n => length
-$cache = {}
+$cache = {1 => 1}
 
 def chain(n)
-  
-  return 1 if n == 1
-  
-  unless $cache.has_key?(n)
-    $cache[n] = 1 + chain(collatz(n))
-  end
-  
-  return $cache[n]
+  $cache[n] ||= 1 + chain((n & 0x1) == 0 ? n / 2 : 3*n + 1)
+  $cache[n]
 end
 
 $best_number = 0
