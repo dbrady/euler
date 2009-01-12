@@ -101,7 +101,34 @@ nums = <<NUMS
 53503534226472524250874054075591789781264330331690
 NUMS
 
-# This almost certainly counts as cheating, because Ruby just knows how to handle large numbers. I could break the math down the hard way... but I'm not gonna.
+# This almost certainly counts as cheating, because Ruby just knows
+# how to handle large numbers. I could break the math down the hard
+# way... but I'm not gonna.
+# 
+# Then again, the POINT of all this is to LEARN the "real math"
+# here. And the real math here is simply to know that in addition you
+# can stop worrying about carries after you have a digit that doesn't
+# end in 9, and to handle the addition of digits across multiple
+# columns.
+# 
+# Yep, yep. This problem can be solved. ...I'm still not gonna.
+# 
+# Weeell... maybe. Here's how I'd do it:
+# 1. For the desired number of digits PLUS log(n).ceil digits,
+# 2. Pop the first digit off each number, add them together, add it to
+# the running sum.
+# 3. Multiply the sum by 10.
+# 4. Loop.
+
+# Check the science here, but I believe that log(n).ceil is the number
+# of additional digits +/- 1. If you have 1-9 digits, all 9s, they
+# cannot have a carry of more than 100 so there only needs to be 2
+# digits of additional checking. Double check this: do we perhaps need
+# to monitor the nearness of a rollover digit? If the number is
+# trending with 0000, we can stop because there's no way to overcome
+# it with a cascading rollover. But if the number is trending 9999, it
+# can. So... when can we stop may not be determinable statically.
+
 
 class Array
   def sum
