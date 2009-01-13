@@ -7,7 +7,8 @@ class Sieve
     @@sieve[0] = 0
     @@sieve[1] = 0
     k = 2
-    while k < max
+    loop_max = max/2
+    while k <= loop_max
       if @@sieve[k] == 1
         j = k+k
         while j < max
@@ -36,13 +37,7 @@ class Sieve
   end
 end
 
-class Bignum
-  def prime?
-    Sieve.prime? self
-  end
-end
-
-class Fixnum
+class Integer
   def prime?
     Sieve.prime? self
   end

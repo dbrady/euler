@@ -13,4 +13,3 @@ prime = 0
     end
   end
 end
-

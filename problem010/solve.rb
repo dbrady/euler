@@ -1,4 +1,4 @@
-require '../lib/numeric'
+require '../lib/integer'
 require '../lib/sieve'
 
 max = 2_000_000
