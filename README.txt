@@ -8,9 +8,11 @@ exploration for yourself.
 
 This project contains my solutions to Project Euler problems.
 
-About a third of my solutions are effectively one-liners. Another
-third have been refactored to use common code in lib/, the last third
-still await refactoring.
+About a third of my solutions are effectively one-liners. (My original
+plan was to try to solve all of them from the command-line with ruby
+-e. I'm pleased with how far I made it before realizing that this was
+not a sustainable strategem.) Another third have been refactored to
+use common code in lib/, the last third still await refactoring.
 
 lib/ contains common code for the solutions. My general approach has
 been to write elegant, readable solutions and optimize them later; as
