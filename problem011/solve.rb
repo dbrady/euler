@@ -25,15 +25,13 @@ nums = <<NUMS
 NUMS
 nums = nums.split(/\n/).map {|line| line.split.map {|n| n.to_i} }
 
+require '../lib/enumerable'
+
 class Array
   # redefine OOB to be 0
   alias_method :orig_index, :[]
   def [](i)
     i < size ? orig_index(i) : 0
-  end
-
-  def product
-    self.inject {|a,b| a*b }
   end
 end
 

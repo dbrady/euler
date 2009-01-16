@@ -10,10 +10,6 @@
 
 # Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
-class Array
-  def sum
-    self.inject {|a,b| a+b }
-  end
-end
+require '../lib/enumerable'
 
 puts (1..100).to_a.sum**2 - (1..100).map {|i| i**2}.sum
