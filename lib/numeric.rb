@@ -23,9 +23,5 @@ class Numeric
     end
     lofacs + hifacs.reverse
   end
-  
-  def fact
-    
-  end
 end
 
