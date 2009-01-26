@@ -51,4 +51,5 @@ def trialdiv
   puts primes.inject { |a,b| a+b }
 end
 
-sieve1
+sieve2
+
