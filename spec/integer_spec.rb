@@ -1,3 +1,4 @@
+
 require File.expand_path(File.join(File.dirname(__FILE__), 'spec_helper'))
 
 require 'integer'
@@ -59,9 +60,68 @@ describe Integer do
     
     it "should not cut off sqrt on perfect squares" do
       16.factors.should == [1, 2, 4, 8, 16]
-    end
-      
+    end      
   end
+
+  describe "divisors" do
+    it "should give all factors, sorted, minus self" do
+      20.divisors.should == [1, 2, 4, 5, 10]
+    end
+  end
+  
+  describe "amicable?" do
+    it "should be true for 220" do
+      220.should be_amicable
+    end
     
+    it "should not be true for 221" do
+      221.should_not be_amicable
+    end
+    
+    it "should return false for 1" do
+      # and it definitely should not crash. ;-)
+      1.should_not be_amicable
+    end
+    
+    it "should not be amicable if the divisor sum is the same number" do
+      6.should_not be_amicable
+    end
+  end
+  
+  describe "abundant?" do
+    it "should be true for 12" do
+      12.should be_abundant
+    end
+    
+    it "should not crash on 1" do
+      1.should_not be_abundant
+    end
+  end
+  
+  describe "deficient?" do
+    it "should be true for deficient numbers" do
+      5.should be_deficient
+      17.should be_deficient
+      9.should be_deficient
+    end
+    
+    it "should not crash on 1" do
+      # I don't really know if 1 is deficient or not. Is has NO proper
+      # divisors, but that's technically not the same thing as saying
+      # the sum of its proper divisors is zero....
+      1.should_not be_deficient
+    end
+  end
+   
+  describe "perfect?" do
+    it "should be true for perfect numbers" do
+      6.should be_perfect
+    end
+
+    it "should not crash on 1" do
+      1.should_not be_perfect
+    end
+end
+   
 end
   
