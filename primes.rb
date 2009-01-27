@@ -92,6 +92,7 @@ def atkin_sieve(limit)
   primes
 end
 
+# No idea where I stole it from, sorry
 def erat_sieve(limit)
   return [] if limit < 2
 

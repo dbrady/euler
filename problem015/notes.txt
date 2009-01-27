@@ -1,0 +1,20 @@
+Starting in the top left corner of a 2×2 grid, there are 6 routes
+(without backtracking) to the bottom right corner.
+
+RRDD, RDRD, RDDR, DRRD, DRDR, DDRR.
+
+How many routes are there through a 20x20 grid?
+
+Notes:
+
+Uhh, I think this is just a combination! You must go down 20 times,
+you must go over 20 times. How many orderings of this are there?
+
+This is a straight-up permutation. There are 40! different ways of
+arranging 40 D/R choices, but the downs will have 20! duplicates and
+so will the rights. So we don't really even need a program for this
+one, it's just:
+
+40! / (20! * 20!)
+
+
