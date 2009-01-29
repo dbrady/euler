@@ -6,7 +6,8 @@ DON'T READ THESE FILES IF YOU HAVEN'T TRIED YOUR HAND AT PROJECT
 EULER! My solutions aren't that great; they're not worth ruining the
 exploration for yourself.
 
-This project contains my solutions to Project Euler problems.
+This project contains solutions to Project Euler problems by
+David Brady (dbrady) and Markus Prinz (cypher), mostly written in Ruby.
 
 About a third of my solutions are effectively one-liners. (My original
 plan was to try to solve all of them from the command-line with ruby
