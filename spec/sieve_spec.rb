@@ -16,4 +16,8 @@ describe Sieve do
       7.primes_below.should == [2,3,5]
     end
   end 
+
+  it "should calculate primacy beyond the sieve" do
+    101.should be_prime
+  end
 end

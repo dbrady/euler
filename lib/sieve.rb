@@ -18,11 +18,16 @@ class Sieve
       end
       k += 1
     end
+    @@primes = (max-1).primes_below
   end
   
   # Returns true if n is Prime.
   def self.prime?(n)
-    @@sieve[n] == 1
+    if n < @@sieve.size
+      @@sieve[n] == 1
+    else
+      !@@primes.any? {|p| (n % p) == 0 }
+    end
   end
   
   # Utility method. Get the sieve. (For debugging.)
