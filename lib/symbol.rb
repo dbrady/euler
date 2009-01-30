@@ -14,10 +14,9 @@ class Symbol
   # arbitrary arguments, the resulting to_proc is 400% faster than the
   # original generic version.
   def to_proc
-    # This is the standard to_proc method. It is quite slow. ~2.1s on ruby 1.8 for a million ops; 0.89s on ruby 1.9. About 
+    # This is the standard to_proc method.
     # proc { |obj, *args| obj.send(self, *args) }
 
-    # Faster still is to avoid double dispatch: 0.74s on 1.8, 0.52 on 1.9
     eval "proc {|obj| obj.#{self}}"
   end
 end
