@@ -33,4 +33,12 @@ class Array
       end
     end
   end
+  
+  def dump_permutations
+    p = permutations.map { |i| i.to_s}
+    s = (p.size / size.to_f).ceil
+    (0..s-1).each do |y|
+      puts((0..size).to_a.map {|x| p[x*s+y]} * " ")
+    end
+  end
 end
