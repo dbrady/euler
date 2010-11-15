@@ -52,5 +52,40 @@ class Integer
   def primes_under
     (2..self).select { |i| i.prime? }
   end
+  
+  # Integer.factors returns a sorted list of all factors of self.
+  # factors[0] is always 1 and factors[1] is always prime. If self is
+  # prime, factors[1] == self. So we just cdr down the factors list,
+  # appending a list of factors as we go.
+  # 
+  # 144.prime_factors
+  # => [2, 2, 2, 2, 3, 3]
+  def prime_factors
+    next_factor = factors[1]
+    if self == next_factor
+      return [self]
+    else
+      return [next_factor] + (self/next_factor).prime_factors
+    end
+  end
+
+  # Return a hash of prime => exponent pairs. E.g.
+  # 140.prime_factors
+  # => { 2 => 2, 5 => 1, 7 => 1 }
+  def prime_factor_hash
+    exponents = Hash.new(0)
+    self.prime_factors.each do |f|
+      exponents[f] += 1
+    end
+    exponents
+  end
+  
+  # Returns a string expression of the prime factorization.
+  # 
+  # 144.prime_factor_string
+  # => 2**2 * 3**4
+  def prime_factor_string
+    prime_factor_hash.sort_by {|base, exp| base }.map {|base, exp| "#{base}**#{exp}"} * ' * '
+  end
 end
 

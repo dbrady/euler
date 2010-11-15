@@ -38,6 +38,8 @@ class Integer
     end
     @@factorials[self]
   end
+  alias factorial fact
+  alias f! fact
   
   # True if the number is amicable. Okay, this is a bit esoteric, but
   # a number is amicable if...
