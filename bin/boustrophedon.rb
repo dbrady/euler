@@ -11,6 +11,7 @@
 # Entringer numbers.
 
 require "yaml"
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'integer'))
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'boustrophedon'))
 
 args = ARGV * ''
