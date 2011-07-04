@@ -25,7 +25,7 @@ nums = <<NUMS
 NUMS
 nums = nums.split(/\n/).map {|line| line.split.map {|n| n.to_i} }
 
-require '../lib/enumerable'
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'enumerable'))
 
 class Array
   # redefine OOB to be 0
@@ -37,16 +37,16 @@ end
 
 class << nums
   def h4(x,y)
-    (0..3).map {|i| self[y][x+i]}.product
+    (0..3).map {|i| self[y][x+i]}.pi_product
   end
   def v4(x,y)
-    (0..3).map {|i| self[y+i][x]}.product
+    (0..3).map {|i| self[y+i][x]}.pi_product
   end
   def du4(x,y)
-    (0..3).map {|i| self[y+i][x+4-i]}.product
+    (0..3).map {|i| self[y+i][x+4-i]}.pi_product
   end
   def dd4(x,y)
-    (0..3).map {|i| self[y+i][x+i]}.product
+    (0..3).map {|i| self[y+i][x+i]}.pi_product
   end
   def bestline(x,y)
     [h4(x,y), v4(x,y), du4(x,y), dd4(x,y)].max
