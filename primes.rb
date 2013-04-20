@@ -1,6 +1,11 @@
 #  Created by cypher on 2007-03-12.
 #  Copyright (c) 2007. All rights reserved.
 
+# 2013-04-19 dbrady notes:
+# Thanks to Ruby 2 including 'prime' in stdlib, my whole sieve stuff
+# is extraneous and implemented much, much faster in C. Most of my
+# integer stuff is out of date, too.
+
 require 'mathn'
 
 def atkin_sieve(limit)
@@ -26,7 +31,7 @@ def atkin_sieve(limit)
       end
       n -= d
     end
-  end  
+  end
 
   x_max = Integer(Math.sqrt((limit - 1)/3.0))
   x2, xd = 0, 3
@@ -159,4 +164,3 @@ module ModMath
     result
   end
 end
-

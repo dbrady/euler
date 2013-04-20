@@ -1,3 +1,11 @@
+# 2013-04-19 dbrady notes:
+# Thanks to Ruby 2 including 'prime' in stdlib, this entire program
+# can be written as:
+#
+# require 'prime'
+# puts Prime.take(10_001).last
+
+
 $:<< "../lib"
 
 require 'sieve'
